@@ -1,0 +1,72 @@
+/*-------------------------------------------------
+GLOBALS CLASSES 
+-------------------------------------------------*/
+*{padding:0; margin:0;}
+body{font-family: 'Droid Serif', serif; font-size:12px; /*color:#9b9e9a;*/ background:#e1ece7;}
+img{border:none;}
+h1{ font-size:18px; color:#d13f31; font-family: 'Oswald', sans-serif; font-weight:normal; text-transform:uppercase;}
+h2{ font-size:14px; color:#1f7872; font-family: 'Droid Serif', serif; font-weight:normal;}
+P{ line-height:20px;}
+a{text-decoration:none; color:#1f7872;}
+a:hover{color:#d13f31;}
+/*-------------------------------------------------
+GENERAL CLASSES
+-------------------------------------------------*/
+.mar-top30{margin-top:30px;}
+.mar-top20{margin-top:20px;}
+.mar-right30{margin-right:30px;}
+.mar-bottom20{margin-bottom:20px;}
+.float-left{ float:left;}
+.float-right{ float:right;}
+.clearing { clear:both;}
+.panel{ background:#ffffff;}
+.title{}
+.content{}
+.page{ width:960px; margin:0 auto;overflow:hidden;min-height:416px}
+/*-------------------------------------------------
+MENU CLASSES
+-------------------------------------------------*/
+.menu-wrap{ overflow:hidden; background:#1a202c;height:87px}
+.menu{margin:0 auto; width:960px; background:#d13f31; height:85px; margin-top:5px;}
+.menu ul li{list-style:none; float:left; width:auto;}
+.menu ul li a{ display:block; height:85px; line-height:85px; padding-left:30px; padding-right:30px; font-size:14px; font-family: 'Oswald', sans-serif; color:#ffffff; border-right:#dd503f solid 1px; text-transform:uppercase;}
+.menu ul li a:hover{background:#e1ece7; color:#1a202c;}
+.menu ul li a.active{background:#e1ece7; color:#1a202c;}
+
+/*-------------------------------------------------
+HEADER CLASSES
+-------------------------------------------------*/
+.header{margin:0 auto; width:960px; height:100px;}
+.logo{width:300px; float:left; line-height:100px;}
+.logo h1{ font-size:32px; color:#d13f31; font-weight:normal;}
+.logo h1 span{ color:#1a202c;}
+
+.social{ float:right; margin-top:45px;}
+.social ul li{list-style:none; float:left; margin-left:15px;}
+
+/*-------------------------------------------------
+MAIN COLUMAS CLASSES
+-------------------------------------------------*/
+.primary-col{ width:100%; overflow:hidden; float:left;}
+.primary-col p{ padding-bottom:20px;}
+.generic{ float:left; overflow:hidden; width:100%;}
+.generic .panel{ padding:30px 30px 30px 30px;}
+.generic .title h1{ padding-bottom:20px;}
+.generic .content{overflow:hidden;}
+.generic .content h2{ padding-bottom:15px;}
+.block{width:310px;}
+.block .panel{padding:50px 30px 30px 30px;}
+.block .title h1{ padding-bottom:20px;}
+.block .content img{ padding-bottom:20px;}
+.block .content h2{ padding-bottom:10px;}
+.block .content p{ padding-bottom:20px;}
+
+/*-------------------------------------------------
+FOOTER CLASSES
+-------------------------------------------------*/
+.primary-footer{ overflow:hidden; margin:0 auto;}
+.copyright-wrap{ background:#1f7872; overflow:hidden; padding:10px 0px 10px 0px;}
+.copyright-wrap .panel{width:960px; margin:0 auto; background:none;}
+.copyright-wrap .panel .content p{ color:#ffffff; text-align:center; font-size:12px;}
+.copyright-wrap .panel .content p a{ text-decoration:none; color:#ffffff;}
+.copyright-wrap .panel .content p a:hover{ color:#1a202c;}

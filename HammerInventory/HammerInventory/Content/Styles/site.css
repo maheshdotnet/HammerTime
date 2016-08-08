@@ -1,0 +1,183 @@
+﻿
+tbody
+{
+    font-family: Lucida Sans Unicode; /*:Arial, Helvetica, sans-serif;*/
+    font-size: 11px !important;
+}
+.GenericFont
+{
+    font-family: Lucida Sans Unicode; /*:Arial, Helvetica, sans-serif;*/
+    font-size: 11px !important;
+}
+
+/**************Modal popup css ************/
+.popupheader
+{
+    height: 27px !important;
+    background-position: 0 -27px;
+    background-repeat: repeat-x;
+    width: 100%;
+    background-image: url(/Content/Images/WebResource4.gif?V1) !important;
+    cursor:move;
+}
+
+.popupheader .popupheadertitle
+{
+	font-family: Lucida Sans Unicode !important;
+font-size: 13px !important;
+font-weight: normal !important;
+float: left;
+line-height: 27px;
+padding: 0;
+margin: 0px 0 0 10px;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+}
+
+.popupheaderclose
+{
+	background-image: url(/Content/Images/commands.gif?V1) !important;
+display: block;
+width: 19px;
+height: 19px;
+text-decoration: none;
+text-indent: -9999px;
+background-repeat: no-repeat;
+cursor: default;
+background-position: 0 -76px;
+margin-right:5px;
+}
+
+.popupheaderclose:hover
+{
+	background-position: -19px -76px;
+}
+
+.PopUpTitle
+{
+    background-image: url("/Content/Images/popTitleBar.png?V1") !important;
+height: 26px;
+}
+
+.PopUpMainPanel
+{
+    border-width: 1px;
+    border-style: solid;
+    position: absolute;
+    background-color: white;
+    border-color: lightgrey;
+}
+
+.ModalPopupBG
+{
+    background-color: Silver;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    position:fixed;
+	z-index: 1000 !important;
+	display:none;
+}
+
+.PopupBG
+{
+    min-width:200px;
+    min-height:150px;
+   z-index: 1001 !important;
+    background-color: #FFFFFF;
+    border-width: 1px;
+border-style: groove;
+border-top: none;
+}
+/****************************************/
+
+/********************** Add New Button*****************************/
+span.add_new_button
+{
+    float: right;
+    text-align: right !important;
+    padding: 5px 8px 5px 8px !important; /*background-color:#F2F2F2!important;*/
+    background: url("/Content/images/tabs.png?V1") repeat-x scroll 0 -475px transparent;
+    border: 1px solid #b4c1cf;
+}
+.add_new_button a
+{
+    font-size: 10px;
+    font-weight: normal;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 6px 0px 4px 18px;
+    background: url(/Content/Images/add_icon.gif?V1) no-repeat 0px 7px;
+    text-decoration: none;
+}
+.add_new_button a:link
+{
+    color: #fff;
+}
+.add_new_button a:visited
+{
+    color: #fff;
+}
+.add_new_button a:active
+{
+    color: #fff;
+}
+
+/******************************************************************/
+
+.inputtext{
+    width: 200px;
+    height: 20px;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #2467d6;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 7px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span a{
+color: white;
+    text-decoration: initial;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 0px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.GridButtons
+{
+    width: 15px;
+    padding: 5px;
+}

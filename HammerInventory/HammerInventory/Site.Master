@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HammerInventory.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammer</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+        <asp:ScriptManager ID="scrMaster" runat="server"></asp:ScriptManager>
+        <div class="menu-wrap">
+            <div class="menu">
+                <ul>
+                    <li><a id="page1" runat="server" href="#" class="">home</a></li>
+                    <li><a id="page2" runat="server" href="Hammers.aspx" class="active">Hammers</a></li>
+                    <li><a id="page3" runat="server" href="Types.aspx" class="">Categories</a></li>
+                    <li><a id="page4" runat="server" href="#" class="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--------menu wrap ends--------->
+        <div class="clearing"></div>
+        <div class="header">
+            <div class="logo">
+                <h1>HAMMER<span>&nbsp;LOGO</span></h1>
+            </div>
+            <div class="social">
+                <ul>
+                    <li><a href="#">
+                        <img src="images/aim.png" alt="aim" /></a></li>
+                    <li><a href="#">
+                        <img src="images/facebook.png" alt="facebook" /></a></li>
+                    <li><a href="#">
+                        <img src="images/twwtter.png" alt="tiwwter" /></a></li>
+                    <li><a href="#">
+                        <img src="images/linkedin.png" alt="linkedin'" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--------header wrap ends--------->
+        <div class="page">
+            <div class="primary-col">
+                <div class="generic">
+                    <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <!---page-end--->
+        <div class="clearing"></div>
+        <div class="primary-footer">
+            <div class="copyright-wrap">
+                <div class="panel">
+                    <div class="content">
+                        <p>Copyright (c) Hammer Company. All rights reserved. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

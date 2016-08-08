@@ -1,0 +1,28 @@
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\HammerInventory.dll.config
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\HammerInventory.dll
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\HammerInventory.pdb
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\EntityFramework.dll
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\EntityFramework.SqlServer.dll
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\EntityFramework.xml
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\bin\EntityFramework.SqlServer.xml
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\obj\Debug\HammerInventory.dll
+c:\users\admin\documents\visual studio 2013\Projects\HammerInventory\HammerInventory\obj\Debug\HammerInventory.pdb
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\HammerInventory.dll.config
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\HammerInventory.dll
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\HammerInventory.pdb
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.dll
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.SqlServer.dll
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.xml
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.SqlServer.xml
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\obj\Debug\HammerInventory.csprojResolveAssemblyReference.cache
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\obj\Debug\HammerInventory.dll
+D:\Personal\Support\Dharma\Hammer Project\Hammer Project\HammerInventory\HammerInventory\HammerInventory\obj\Debug\HammerInventory.pdb
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\bin\HammerInventory.dll
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\bin\HammerInventory.pdb
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.dll
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.SqlServer.dll
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.xml
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\bin\EntityFramework.SqlServer.xml
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\obj\Debug\HammerInventory.csprojResolveAssemblyReference.cache
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\obj\Debug\HammerInventory.dll
+C:\dotnet9to9\Projects\Hammer Solution\HammerInventory\HammerInventory\HammerInventory\obj\Debug\HammerInventory.pdb

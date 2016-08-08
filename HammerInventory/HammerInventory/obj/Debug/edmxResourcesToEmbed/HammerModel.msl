@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HammerDBModelStoreContainer" CdmEntityContainer="HammerDBEntities">
+    <EntitySetMapping Name="Hammers">
+      <EntityTypeMapping TypeName="HammerDBModel.Hammer">
+        <MappingFragment StoreEntitySet="Hammers">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="HammerDescription" ColumnName="HammerDescription" />
+          <ScalarProperty Name="HammerName" ColumnName="HammerName" />
+          <ScalarProperty Name="HammerId" ColumnName="HammerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HammerTypes">
+      <EntityTypeMapping TypeName="HammerDBModel.HammerType">
+        <MappingFragment StoreEntitySet="HammerTypes">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TypeDesc" ColumnName="TypeDesc" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteHammerType" FunctionName="HammerDBModel.Store.DeleteHammerType" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateHammerType" FunctionName="HammerDBModel.Store.InsertUpdateHammerType" />
+    <FunctionImportMapping FunctionImportName="DeleteHammer" FunctionName="HammerDBModel.Store.DeleteHammer" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateHammer" FunctionName="HammerDBModel.Store.InsertUpdateHammer" />
+    <FunctionImportMapping FunctionImportName="GetHammers" FunctionName="HammerDBModel.Store.GetHammers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HammerDBModel.GetHammers_Result">
+          <ScalarProperty Name="HammerId" ColumnName="HammerId" />
+          <ScalarProperty Name="HammerName" ColumnName="HammerName" />
+          <ScalarProperty Name="HammerDescription" ColumnName="HammerDescription" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

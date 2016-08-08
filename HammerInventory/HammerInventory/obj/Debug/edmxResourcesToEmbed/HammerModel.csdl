@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HammerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HammerDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hammers" EntityType="HammerDBModel.Hammer" />
+    <EntitySet Name="HammerTypes" EntityType="HammerDBModel.HammerType" />
+    <AssociationSet Name="FK_Hammers_HammerTypes" Association="HammerDBModel.FK_Hammers_HammerTypes">
+      <End Role="HammerType" EntitySet="HammerTypes" />
+      <End Role="Hammer" EntitySet="Hammers" />
+    </AssociationSet>
+    <FunctionImport Name="DeleteHammerType">
+      <Parameter Name="TypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertUpdateHammerType" ReturnType="Collection(String)">
+      <Parameter Name="TypeId" Mode="In" Type="Int32" />
+      <Parameter Name="TypeName" Mode="In" Type="String" />
+      <Parameter Name="TypeDesc" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteHammer">
+      <Parameter Name="HammerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertUpdateHammer" ReturnType="Collection(String)">
+      <Parameter Name="HammerId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Desc" Mode="In" Type="String" />
+      <Parameter Name="TypeId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetHammers" ReturnType="Collection(HammerDBModel.GetHammers_Result)" />
+  </EntityContainer>
+  <EntityType Name="Hammer">
+    <Key>
+      <PropertyRef Name="HammerId" />
+    </Key>
+    <Property Name="HammerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HammerName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="HammerDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="HammerType" Relationship="HammerDBModel.FK_Hammers_HammerTypes" FromRole="Hammer" ToRole="HammerType" />
+  </EntityType>
+  <EntityType Name="HammerType">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TypeDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Hammers" Relationship="HammerDBModel.FK_Hammers_HammerTypes" FromRole="HammerType" ToRole="Hammer" />
+  </EntityType>
+  <Association Name="FK_Hammers_HammerTypes">
+    <End Type="HammerDBModel.HammerType" Role="HammerType" Multiplicity="1" />
+    <End Type="HammerDBModel.Hammer" Role="Hammer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HammerType">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="Hammer">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetHammers_Result">
+    <Property Type="Int32" Name="HammerId" Nullable="false" />
+    <Property Type="String" Name="HammerName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="HammerDescription" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="TypeId" Nullable="false" />
+    <Property Type="String" Name="TypeName" Nullable="false" MaxLength="500" />
+  </ComplexType>
+</Schema>

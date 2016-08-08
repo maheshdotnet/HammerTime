@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HammerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hammers">
+          <Key>
+            <PropertyRef Name="HammerId" />
+          </Key>
+          <Property Name="HammerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HammerName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="HammerDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="500" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HammerTypes">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="TypeDesc" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="500" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Hammers_HammerTypes">
+          <End Role="HammerTypes" Type="Self.HammerTypes" Multiplicity="1" />
+          <End Role="Hammers" Type="Self.Hammers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HammerTypes">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Hammers">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteHammer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HammerId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteHammerType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetHammers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertUpdateHammer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HammerId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Desc" Type="varchar" Mode="In" />
+          <Parameter Name="TypeId" Type="int" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertUpdateHammerType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeId" Type="int" Mode="In" />
+          <Parameter Name="TypeName" Type="varchar" Mode="In" />
+          <Parameter Name="TypeDesc" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="HammerDBModelStoreContainer">
+          <EntitySet Name="Hammers" EntityType="Self.Hammers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HammerTypes" EntityType="Self.HammerTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Hammers_HammerTypes" Association="Self.FK_Hammers_HammerTypes">
+            <End Role="HammerTypes" EntitySet="HammerTypes" />
+            <End Role="Hammers" EntitySet="Hammers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HammerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HammerDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hammers" EntityType="HammerDBModel.Hammer" />
+          <EntitySet Name="HammerTypes" EntityType="HammerDBModel.HammerType" />
+          <AssociationSet Name="FK_Hammers_HammerTypes" Association="HammerDBModel.FK_Hammers_HammerTypes">
+            <End Role="HammerType" EntitySet="HammerTypes" />
+            <End Role="Hammer" EntitySet="Hammers" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteHammerType">
+          <Parameter Name="TypeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertUpdateHammerType" ReturnType="Collection(String)">
+            <Parameter Name="TypeId" Mode="In" Type="Int32" />
+            <Parameter Name="TypeName" Mode="In" Type="String" />
+            <Parameter Name="TypeDesc" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteHammer">
+          <Parameter Name="HammerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertUpdateHammer" ReturnType="Collection(String)">
+            <Parameter Name="HammerId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Desc" Mode="In" Type="String" />
+            <Parameter Name="TypeId" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetHammers" ReturnType="Collection(HammerDBModel.GetHammers_Result)" />
+        </EntityContainer>
+        <EntityType Name="Hammer">
+          <Key>
+            <PropertyRef Name="HammerId" />
+          </Key>
+          <Property Name="HammerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HammerName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HammerDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="HammerType" Relationship="HammerDBModel.FK_Hammers_HammerTypes" FromRole="Hammer" ToRole="HammerType" />
+        </EntityType>
+        <EntityType Name="HammerType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TypeDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Hammers" Relationship="HammerDBModel.FK_Hammers_HammerTypes" FromRole="HammerType" ToRole="Hammer" />
+        </EntityType>
+        <Association Name="FK_Hammers_HammerTypes">
+          <End Type="HammerDBModel.HammerType" Role="HammerType" Multiplicity="1" />
+          <End Type="HammerDBModel.Hammer" Role="Hammer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HammerType">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Hammer">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetHammers_Result">
+          <Property Type="Int32" Name="HammerId" Nullable="false" />
+          <Property Type="String" Name="HammerName" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="HammerDescription" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="TypeId" Nullable="false" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="500" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HammerDBModelStoreContainer" CdmEntityContainer="HammerDBEntities">
+          <EntitySetMapping Name="Hammers">
+            <EntityTypeMapping TypeName="HammerDBModel.Hammer">
+              <MappingFragment StoreEntitySet="Hammers">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="HammerDescription" ColumnName="HammerDescription" />
+                <ScalarProperty Name="HammerName" ColumnName="HammerName" />
+                <ScalarProperty Name="HammerId" ColumnName="HammerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HammerTypes">
+            <EntityTypeMapping TypeName="HammerDBModel.HammerType">
+              <MappingFragment StoreEntitySet="HammerTypes">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TypeDesc" ColumnName="TypeDesc" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteHammerType" FunctionName="HammerDBModel.Store.DeleteHammerType" />
+          <FunctionImportMapping FunctionImportName="InsertUpdateHammerType" FunctionName="HammerDBModel.Store.InsertUpdateHammerType" />
+          <FunctionImportMapping FunctionImportName="DeleteHammer" FunctionName="HammerDBModel.Store.DeleteHammer" />
+          <FunctionImportMapping FunctionImportName="InsertUpdateHammer" FunctionName="HammerDBModel.Store.InsertUpdateHammer" />
+          <FunctionImportMapping FunctionImportName="GetHammers" FunctionName="HammerDBModel.Store.GetHammers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HammerDBModel.GetHammers_Result">
+                <ScalarProperty Name="HammerId" ColumnName="HammerId" />
+                <ScalarProperty Name="HammerName" ColumnName="HammerName" />
+                <ScalarProperty Name="HammerDescription" ColumnName="HammerDescription" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
